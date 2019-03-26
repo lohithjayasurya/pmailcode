@@ -238,7 +238,8 @@ public boolean onOptionsItemSelected(MenuItem item){
 
     }
     else if(item.getItemId()==R.id.trash){
-
+           Intent i =new Intent(this,tras.class);
+           startActivity(i);
     }
     else if(item.getItemId()==R.id.report){
            Intent i =new Intent(this,report.class);

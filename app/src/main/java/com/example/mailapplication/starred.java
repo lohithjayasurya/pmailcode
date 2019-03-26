@@ -150,7 +150,7 @@ public class starred extends AppCompatActivity implements AdapterView.OnItemClic
         int i = 0;
         for (i = 0; i < k; i++) {
             if (txt.getText().equals(newmessages[i])) {
-                Intent x = new Intent(this, messages1.class);
+                Intent x = new Intent(this, messages2.class);
                 x.putExtra("message",newrecmessages[i]);
                 x.putExtra("from",newrec[i]);
                 x.putExtra("subject",newsub[i]);
