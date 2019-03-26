@@ -34,7 +34,7 @@ public class register extends AppCompatActivity implements View.OnClickListener 
     RadioButton b2, b3, b4;
     String gender = "others";
     SharedPreferences pref;
-    String m = "";
+    String m="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,11 +85,11 @@ public class register extends AppCompatActivity implements View.OnClickListener 
                             if (!(p5.isEmpty())) {
                                 if (!(p6.isEmpty())) {
                                     if (p1.length() > 4 && p1.length() < 20) {
-                                        if (p2.length() > 0 && p2.length() < 10) {
-                                            if (p3.length() > 0 && p3.length() < 10) {
+                                        if (lenCheck(p2)) {
+                                            if (lenCheck(p3)) {
                                                 if (p4.length() == 10) {
-                                                    if (p5.length() > 7 && p5.length() < 15) {
-                                                        if (p6.length() > 7 && p6.length() < 15) {
+                                                    if (lenCheck1(p5)) {
+                                                        if (lenCheck1(p6)) {
                                                             if (p5.equals(p6)) {
 
                                                                 final RequestQueue queue = Volley.newRequestQueue(this);
@@ -111,12 +111,12 @@ public class register extends AppCompatActivity implements View.OnClickListener 
                                                                             public void onResponse(JSONObject response) {
                                                                                 try {
                                                                                     m = response.getString("mails");
-                                                                                    if (m.length() != 2) {
+                                                                                     if(m.length()!=2){
                                                                                         Toast.makeText(register.this, "Username already exists", Toast.LENGTH_LONG).show();
-                                                                                        e1.setText("");
+                                                                                         e1.setText("");
                                                                                     }
 
-                                                                                    if (m.length() == 2) {
+                                                                                    if (m.length()==2) {
 
                                                                                         register();
                                                                                         Toast.makeText(register.this, "Registered Successfully", Toast.LENGTH_LONG).show();
@@ -183,6 +183,9 @@ public class register extends AppCompatActivity implements View.OnClickListener 
             int t = 0;
 
 
+
+
+
         }
     }
 
@@ -235,6 +238,7 @@ public class register extends AppCompatActivity implements View.OnClickListener 
 
 
 
+
 //
 //    public void phoneno() {
 //        final RequestQueue queue = Volley.newRequestQueue(this);
@@ -278,6 +282,14 @@ public class register extends AppCompatActivity implements View.OnClickListener 
 //        queue.add(jsObjRequest);
 //
 //    }
+public boolean lenCheck(String x)
+{
+    return (x.length()>0 && x.length()<10);
+}
+    public boolean lenCheck1(String x)
+    {
+        return (x.length()>7 && x.length()<15);
+    }
 
 }
 

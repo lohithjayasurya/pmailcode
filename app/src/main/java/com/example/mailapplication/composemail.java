@@ -162,8 +162,8 @@ int i=0;
 
         String p2 = e2.getText().toString();
         String p3 = e3.getText().toString();
-        if(!(p1.isEmpty())) {
-            if (!(p2.isEmpty())) {
+        if(!(emptycheck(p1))) {
+            if (!(emptycheck(p2))) {
                 if (p2.length() < 15) {
                     if (!(p3.isEmpty())) {
                         z=e1.getText().toString().split(",");
@@ -193,6 +193,10 @@ int i=0;
 
     }
 
+    public boolean emptycheck(String x)
+    {
+        return x.isEmpty();
+    }
 
     }
 

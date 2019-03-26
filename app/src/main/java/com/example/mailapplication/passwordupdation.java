@@ -51,7 +51,7 @@ public class passwordupdation extends AppCompatActivity {
                         if(!(y.isEmpty())){
                             if(x.length()>=8){
                                 if(y.length()>=8){
-                                    if(x.equals(y)){
+                                    if(equalret(x,y)){
                                         final RequestQueue queue = Volley.newRequestQueue(passwordupdation.this);
                                         final String url = "https://p-mail.herokuapp.com/update_pass"; // your URL
 
@@ -119,5 +119,8 @@ public class passwordupdation extends AppCompatActivity {
             });
 
         }
-
-   }
+    public boolean equalret(String x,String y)
+    {
+        return x.equals(y);
+    }
+    }
