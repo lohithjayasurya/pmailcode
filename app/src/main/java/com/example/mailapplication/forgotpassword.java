@@ -37,6 +37,7 @@ public class forgotpassword extends AppCompatActivity {
         String m;
         String n;
         String n1;
+        static Random random;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -106,7 +107,7 @@ public class forgotpassword extends AppCompatActivity {
         public  static Integer generateOtp() {
             Integer MIN=100000;
             Integer MAX=999999;
-            Random random=new Random();
+            random=new Random();
             x=random.nextInt(((MAX-MIN)+1)+MIN);
             return x;
         }
