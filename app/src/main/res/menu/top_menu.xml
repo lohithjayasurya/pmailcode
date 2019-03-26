@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/starred"
+        android:title="STARRED" />
+    <item
+        android:id="@+id/seen"
+        android:title="SEEN" />
+    <item
+        android:id="@+id/unseen"
+        android:title="UNSEEN"/>
+    <item
+        android:id="@+id/composemessage"
+        android:title="COMPOSE MESSAGE" />
+    <item
+        android:id="@+id/sent"
+        android:title="SENT" />
+    <item
+        android:id="@+id/trash"
+        android:title="TRASH" />
+    <item
+        android:id="@+id/report"
+        android:title="REPORT" />
+    <item
+        android:id="@+id/updateprofile"
+        android:title="UPDATE PROFILE" />
+    <item
+        android:id="@+id/logout"
+        android:title="LOGOUT" />
+    <item
+        android:id="@+id/deleteaccount"
+        android:title="DELETE ACCOUNT" />
+
+</menu>
+
