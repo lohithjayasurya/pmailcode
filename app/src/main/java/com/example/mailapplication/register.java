@@ -34,7 +34,7 @@ public class register extends AppCompatActivity implements View.OnClickListener 
     RadioButton b2, b3, b4;
     String gender = "others";
     SharedPreferences pref;
-    String m="";
+    String m = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,12 +111,12 @@ public class register extends AppCompatActivity implements View.OnClickListener 
                                                                             public void onResponse(JSONObject response) {
                                                                                 try {
                                                                                     m = response.getString("mails");
-                                                                                     if(m.length()!=2){
+                                                                                    if (m.length() != 2) {
                                                                                         Toast.makeText(register.this, "Username already exists", Toast.LENGTH_LONG).show();
-                                                                                         e1.setText("");
+                                                                                        e1.setText("");
                                                                                     }
 
-                                                                                    if (m.length()==2) {
+                                                                                    if (m.length() == 2) {
 
                                                                                         register();
                                                                                         Toast.makeText(register.this, "Registered Successfully", Toast.LENGTH_LONG).show();
@@ -183,9 +183,6 @@ public class register extends AppCompatActivity implements View.OnClickListener 
             int t = 0;
 
 
-
-
-
         }
     }
 
@@ -235,7 +232,6 @@ public class register extends AppCompatActivity implements View.OnClickListener 
     public void validatemail() {
 
     }
-
 
 
 
