@@ -196,7 +196,7 @@ public class unseen extends AppCompatActivity implements AdapterView.OnItemClick
                     }
                 });
                 queue.add(jsObjRequest);
-                Intent b= new Intent(this, messages1.class);
+                Intent b= new Intent(this, messages2.class);
                 b.putExtra("message",newrecmessages[i]);
                 b.putExtra("from",newrec[i]);
                 b.putExtra("subject",newsub[i]);

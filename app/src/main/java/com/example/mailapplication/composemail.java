@@ -135,7 +135,7 @@ int i=0;
                             String m=response.getString("message");
                             Toast.makeText(composemail.this, "Mail sent successfully to "+z[k], Toast.LENGTH_SHORT).show();
                             if(k==n-1) {
-                                Intent i5 = new Intent(composemail.this,inbox.class);
+                                Intent i5 = new Intent(composemail.this,sent.class);
                                 startActivity(i5);
                                 finishAffinity();
                             }
