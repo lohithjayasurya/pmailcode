@@ -166,14 +166,20 @@ int i=0;
             if (!(emptycheck(p2))) {
                 if (p2.length() < 15) {
                     if (!(p3.isEmpty())) {
+                        if(!((p2.contains(","))||(p2.contains(":"))||(p2.contains("\\"))||(p3.contains(","))||(p3.contains(":"))||(p3.contains("\\"))||(p2.contains("/"))||(p3.contains("/")))){
                         z=e1.getText().toString().split(",");
 
                          n=z.length;
                         Log.d(n+":   ", "onResponse: ");
                         for(i=0;i<n;i++) {
                             getData();
-                            Log.d(z[i]+":   ", "onResponse: ");
+                            Log.d(z[i] + ":   ", "onResponse: ");
                             validateEmail(i);
+                        }
+
+                        }
+                        else{
+                            Toast.makeText(composemail.this, "subject or message should not contains , or : or \\ or /", Toast.LENGTH_SHORT).show();
                         }
                         }else{
                         Toast.makeText(composemail.this, "message should not be empty", Toast.LENGTH_SHORT).show();

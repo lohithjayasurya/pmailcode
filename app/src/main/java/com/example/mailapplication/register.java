@@ -91,51 +91,56 @@ public class register extends AppCompatActivity implements View.OnClickListener 
                                                     if (lenCheck1(p5)) {
                                                         if (lenCheck1(p6)) {
                                                             if (p5.equals(p6)) {
+                                                                if(!((p1.contains(","))||(p1.contains(":"))||(p1.contains("/"))||(p1.contains("\\")))) {
+                                                                    final RequestQueue queue = Volley.newRequestQueue(this);
+                                                                    final String url = "https://p-mail.herokuapp.com/validateEmail"; // your URL
 
-                                                                final RequestQueue queue = Volley.newRequestQueue(this);
-                                                                final String url = "https://p-mail.herokuapp.com/validateEmail"; // your URL
-
-                                                                queue.start();
-                                                                HashMap<String, String> params = new HashMap<String, String>();
-                                                                params.put("email", e1.getText().toString()); // the entered data as the body.
+                                                                    queue.start();
+                                                                    HashMap<String, String> params = new HashMap<String, String>();
+                                                                    params.put("email", e1.getText().toString()); // the entered data as the body.
 
 
-                                                                final String k2 = e1.getText().toString();
-                                                                JsonObjectRequest jsObjRequest = new
-                                                                        JsonObjectRequest(Request.Method.POST,
-                                                                        url,
-                                                                        new JSONObject(params),
-                                                                        new Response.Listener<JSONObject>() {
-                                                                            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-                                                                            @Override
-                                                                            public void onResponse(JSONObject response) {
-                                                                                try {
-                                                                                    m = response.getString("mails");
-                                                                                     if(m.length()!=2){
-                                                                                        Toast.makeText(register.this, "Username already exists", Toast.LENGTH_LONG).show();
-                                                                                         e1.setText("");
+                                                                    final String k2 = e1.getText().toString();
+                                                                    JsonObjectRequest jsObjRequest = new
+                                                                            JsonObjectRequest(Request.Method.POST,
+                                                                            url,
+                                                                            new JSONObject(params),
+                                                                            new Response.Listener<JSONObject>() {
+                                                                                @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+                                                                                @Override
+                                                                                public void onResponse(JSONObject response) {
+                                                                                    try {
+                                                                                        m = response.getString("mails");
+                                                                                        if (m.length() != 2) {
+                                                                                            Toast.makeText(register.this, "Username already exists", Toast.LENGTH_LONG).show();
+                                                                                            e1.setText("");
+                                                                                        }
+
+                                                                                        if (m.length() == 2) {
+
+                                                                                            register();
+                                                                                            Toast.makeText(register.this, "Registered Successfully", Toast.LENGTH_LONG).show();
+                                                                                            Intent i = new Intent(register.this, MainActivity.class);
+                                                                                            startActivity(i);
+                                                                                            finishAffinity();
+                                                                                        }
+
+                                                                                    } catch (JSONException e) {
+                                                                                        e.printStackTrace();
                                                                                     }
-
-                                                                                    if (m.length()==2) {
-
-                                                                                        register();
-                                                                                        Toast.makeText(register.this, "Registered Successfully", Toast.LENGTH_LONG).show();
-                                                                                        Intent i = new Intent(register.this, MainActivity.class);
-                                                                                        startActivity(i);
-                                                                                        finishAffinity();
-                                                                                    }
-
-                                                                                } catch (JSONException e) {
-                                                                                    e.printStackTrace();
                                                                                 }
-                                                                            }
-                                                                        }, new Response.ErrorListener() {
-                                                                    @Override
-                                                                    public void onErrorResponse(VolleyError error) {
-                                                                        e1.setText("");
-                                                                    }
-                                                                });
-                                                                queue.add(jsObjRequest);
+                                                                            }, new Response.ErrorListener() {
+                                                                        @Override
+                                                                        public void onErrorResponse(VolleyError error) {
+                                                                            e1.setText("");
+                                                                        }
+                                                                    });
+                                                                    queue.add(jsObjRequest);
+
+                                                                }
+                                                                else{
+                                                                    Toast.makeText(this, "username or firstname or lastname should not contains , or : or \\ or /", Toast.LENGTH_SHORT).show();
+                                                                }
 
 
                                                             } else {
