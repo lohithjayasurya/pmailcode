@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ScrollView;
@@ -35,13 +36,14 @@ import org.json.JSONObject;
 import java.util.Collections;
 import java.util.HashMap;
 
-public class inbox extends AppCompatActivity implements AdapterView.OnItemClickListener{
+public class inbox extends AppCompatActivity implements AdapterView.OnItemClickListener, View.OnClickListener {
     ListView lv;
     EditText editText;
     int n;
     String[] messages;
     String[] recmessages;
     String[] rec;
+    Button b;
     String[] sub;
     String split[]={};
 
@@ -53,6 +55,8 @@ String s=null;
         setContentView(R.layout.activity_inbox);
         lv=(ListView)findViewById(R.id.lv1);
         editText = (EditText) findViewById(R.id.editText);
+        b=findViewById(R.id.button13);
+        b.setOnClickListener(this);
         getData();
         final RequestQueue queue = Volley.newRequestQueue(this);
         final String url = "https://p-mail.herokuapp.com/inbox"; // your URL
@@ -302,4 +306,14 @@ public boolean onOptionsItemSelected(MenuItem item){
 
         return false;
 }
+
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    @Override
+    public void onClick(View v) {
+if(v.getId()==R.id.button13){
+    Intent i5 = new Intent(this,inbox.class);
+    startActivity(i5);
+    finishAffinity();
+}
+    }
 }
