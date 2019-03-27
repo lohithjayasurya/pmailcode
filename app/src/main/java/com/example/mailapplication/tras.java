@@ -32,7 +32,7 @@ import java.util.HashMap;
 
 public class tras extends AppCompatActivity implements AdapterView.OnItemClickListener{
     ListView lv;
-    int n;
+    int n=0;
     String[] messages;
     String[] recmessages;
     String[] rec;
@@ -119,7 +119,7 @@ public class tras extends AppCompatActivity implements AdapterView.OnItemClickLi
         int i = 0;
         for (i = 0; i < n; i++) {
             if (txt.getText().equals(messages[i])) {
-                Intent m = new Intent(this, messages2.class);
+                Intent m = new Intent(this, messages3.class);
                 m.putExtra("message",recmessages[i]);
                 m.putExtra("from",rec[i]);
                 m.putExtra("subject",sub[i]);

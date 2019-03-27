@@ -107,6 +107,7 @@ public class seen extends AppCompatActivity implements AdapterView.OnItemClickLi
                                 }
 
                             }
+                            Toast.makeText(getApplicationContext(), "SEEN "+k+" messages", Toast.LENGTH_SHORT).show();
                             final ArrayAdapter<String> ada;
                             newmessages=new String[k];
                             for(i=0,k=0;i<n;i++){

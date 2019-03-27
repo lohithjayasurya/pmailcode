@@ -13,12 +13,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".tras"
-            android:label="TRASH"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".messages2"
+        <activity android:name=".messages3"
             android:label="MESSAGE"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" ></activity>
+        <activity
+            android:name=".tras"
+            android:label="TRASH"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".messages2"
+            android:label="MESSAGE"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".unseen"
             android:label="UNSEEN"
